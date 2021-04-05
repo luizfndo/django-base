@@ -1,0 +1,12 @@
+Django
+psycopg2
+Pillow
+boto3
+gunicorn
+dj-database-url
+python-decouple
+django-storages
+django-extensions
+django-filter
+django-cors-headers
+requests

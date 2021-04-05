@@ -1,0 +1,46 @@
+{% extends "website/master.html" %}
+{% load i18n %}
+{% load static_build %}
+{% load components %}
+{% block title %}{% trans 'My Account' %}{% endblock %}
+{% block meta %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+{% block css %}
+    <link href="{% static_build 'account/css/user-panel.css' %}" rel="stylesheet">
+{% endblock %}
+{% block js_noblock %}
+    <script src="{% static_build 'account/js/user-panel.js' %}"></script>
+{% endblock %}
+{% block main %}
+<main class="page width-boxed">
+    <div class="user-panel">
+        <h1>
+            {% fragment 'username' user=user greetings='Olá' %}
+            <a href="{% url 'account:logout' %}">Sair</a>
+        </h1>
+        <ul class="options">
+            <li>
+                <a href="#">{% trans 'My Data'%}</a>
+                <div class="tips">
+                    Change your name, username and e-mail.
+                </div>
+            </li>
+            <li>
+                <a href="{% url 'account:password_change' %}">{% trans 'Change Password'%}</a>
+                <div class="tips">
+                    Change your password.
+                </div>
+            </li>
+        </ul>
+        <div class="request-delete">
+            <form action="{% url 'account:delete' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">
+                    {% trans 'Delete Account' context 'Delete user account' %}
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

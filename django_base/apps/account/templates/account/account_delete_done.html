@@ -1,0 +1,30 @@
+{% extends "website/master.html" %}
+{% load custom_tags %}
+{% load i18n %}
+{% block title %}{% trans 'Account Deleted' %}{% endblock %}
+{% block meta %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+{% block css %}
+    <link href="{% static_build 'account/css/account-delete-done.css' %}" rel="stylesheet">
+{% endblock %}
+{% block main %}
+<main>
+    <div class="panel">
+        <div class="inner">
+            <h1>{% trans 'Account Deleted' %}</h1>
+            <p>
+                {% blocktrans trimmed %}
+                Your account was disabled successfully and it will be delete
+                permanently in 30 days. You can click the link below and recover
+                your account. Your account also will be recovered if you log in
+                before the end of the 30 day deadline.
+                {% endblocktrans %}
+            </p>
+            <a href="{{link_recovery}}" class="lnk-recovery">
+                {% trans 'Recover my Account' %}
+            </a>
+        </div>
+    </div>
+</main>
+{% endblock %}

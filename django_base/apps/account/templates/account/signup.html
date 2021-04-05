@@ -1,0 +1,68 @@
+{% extends "website/master.html" %}
+{% load custom_tags %}
+{% load i18n %}
+{% block title %}{% trans 'Sign Up' %}{% endblock %}
+{% block meta %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+{% block css %}
+    <link href="{% static_build 'account/css/signup.css' %}" rel="stylesheet">
+{% endblock %}
+{% block js_noblock %}
+    <script src="{% static_build 'account/js/jquery-validate/jquery.validate.js' %}"></script>
+    {% if cur_lang == 'pt' %}
+    <script src="{% static_build 'account/js/jquery-validate/localization/messages_pt_BR.js' %}"></script>
+    {% endif %}
+    <script src="{% static_build 'account/js/signup.js' %}"></script>
+{% endblock %}
+{% block main %}
+<main>
+    <div class="panel">
+        <div class="inner">
+            <h1>{% trans 'Sign Up' %}</h1>
+            <form id="form-signup" method="post">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="{{form.username.id_for_label}}">
+                        {{form.username.label}}:
+                    </label>
+                    {{form.username}}
+                    <span class="hint">
+                        {% trans 'The username can be displayed to other users.' %}
+                    </span>
+                    {{form.username.errors}}
+                </div>
+                <div class="field">
+                    <label for="{{form.email.id_for_label}}">
+                        {{form.email.label}}:
+                    </label>
+                    {{form.email}}
+                    <span class="hint">
+                        {% trans 'The email address is private and won\'t be published.' %}
+                    </span>
+                    {{form.email.errors}}
+                </div>
+                <div class="field">
+                    <label for="{{form.password1.id_for_label}}">
+                        {{form.password1.label}}:
+                    </label>
+                    {{form.password1}}
+                    {{ form.password1.errors }}
+                </div>
+                <div class="field">
+                    <label for="{{form.password2.id_for_label}}">
+                        {{form.password2.label}}:
+                    </label>
+                    {{form.password2}}
+                    {{form.password2.errors}}
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="btn-signup">
+                        {% trans 'Sign Up' context 'Sign Up button' %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,43 @@
+.user-panel h1 {
+    border-bottom: 1px solid #F1F1F1;
+}
+
+
+.user-panel .options {
+    padding: 15px 15px 25px;
+}
+
+.user-panel .options li {
+    margin-bottom: 15px;
+}
+
+.user-panel .options a {
+    display: inline-block;
+}
+
+.user-panel .options .tips {
+    margin-top: 4px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.request-delete {
+    padding: 15px;
+    border-top: 1px solid #F1F1F1;
+}
+
+.request-delete button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #E3152D;
+    border-radius: 3px;
+    border: 1px solid #E3152D;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+
+.user-panel .username {
+    margin: 0;
+}

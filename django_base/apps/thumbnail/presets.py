@@ -1,0 +1,15 @@
+POSTER_SQUARED = 'poster_squared'
+POSTER_SQUARED_2X = 'poster_squared_2x'
+POSTER_PORTRAIT = 'poster_portrait'
+POSTER_PORTRAIT_2X = 'poster_portrait_2x'
+POSTER_LANDSCAPE = 'poster_landscape'
+POSTER_LANDSCAPE_2X = 'poster_landscape_2x'
+
+PRESET_CHOICES = {
+    POSTER_SQUARED: (240, 240),
+    POSTER_SQUARED_2X: (480, 480),
+    POSTER_PORTRAIT: (240, 360),
+    POSTER_PORTRAIT_2X: (480, 720),
+    POSTER_LANDSCAPE: (720, 480),
+    POSTER_LANDSCAPE_2X: (1440, 960)
+}

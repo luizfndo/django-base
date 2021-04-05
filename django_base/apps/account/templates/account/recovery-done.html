@@ -1,0 +1,29 @@
+{% extends "website/master.html" %}
+{% load custom_tags %}
+{% load i18n %}
+{% block title %}{% trans 'Recovery Complete' %}{% endblock %}
+{% block meta %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+{% block css %}
+    <link href="{% static_build 'account/css/recovery.css' %}" rel="stylesheet">
+{% endblock %}
+{% block main %}
+<main>
+    <div class="panel">
+        <div class="inner">
+            <h1>{% trans 'Recovery Complete' %}</h1>
+            <p>
+                {% blocktrans with username=user.get_display_name|truncatechars:30 trimmed %}
+                Welcome back {{username}}, your account has been successfully recovered.
+                {% endblocktrans %}
+            </p>
+            <p class="home-link-wrapper">
+                <a href="{% url 'account:login' %}" class="go-home-now">
+                    Login
+                </a>
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}

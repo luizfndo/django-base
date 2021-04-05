@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load static %}
+{% get_current_language as cur_lang %}
+<!DOCTYPE html>
+<html lang="{{cur_lang}}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} - Django Base</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="theme-color" content="#FFF">
+    {% block meta %}{% endblock %}
+    {% block preload %}{% endblock %}
+    {% block prefetch %}{% endblock %}
+    <link href="{% static 'website/css/master.css' %}" rel="stylesheet">
+    {% block css %}{% endblock %}
+    {% block inline_css %}{% endblock %}
+    {% block js %}{% endblock %}
+</head>
+<body>
+    {% block main %}{% endblock %}
+    <script src="{% static 'website/js/master.js' %}"></script>
+    {% block js_noblock %}{% endblock %}
+    {% block structured_data %}{% endblock %}
+</body>
+</html>

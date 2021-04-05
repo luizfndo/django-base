@@ -1,0 +1,13 @@
+{% extends "website/master.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% translate 'Homepage' %}{% endblock %}
+{% block description %}{% endblock %}
+{% block css %}
+    <link href="{% static 'website/css/home.css' %}" rel="stylesheet">
+{% endblock %}
+{% block main %}
+<main>
+    <h1>Django Base Project</h1>
+</main>
+{% endblock %}

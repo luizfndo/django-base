@@ -1,0 +1,61 @@
+{% extends "website/master.html" %}
+{% load i18n %}
+{% load embed_svg %}
+{% load static_build %}
+{% block title %}{% translate 'Authentication' %}{% endblock %}
+{% block meta %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+{% block css %}
+    <link href="{% static_build 'account/css/login.css' %}" rel="stylesheet">
+{% endblock %}
+{% block main %}
+<main>
+    <section>
+        <div class="inner">
+            <h1>{% translate 'Authentication' %}</h1>
+            {% if form.errors %}
+            <div class="error">
+                {% translate "Your email and password didn't match. Please try again." %}
+            </div>
+            {% endif %}
+            <form method="post" action="{% url 'account:login' %}">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="{{form.username.id_for_label}}">
+                        {{form.username.label}}:
+                    </label>
+                    {{form.username}}
+                    {{form.username.errors}}
+                </div>
+                <div class="field">
+                    <label for="{{form.password.id_for_label}}">
+                        {{form.password.label}}:
+                    </label>
+                    {{form.password}}
+                    {{form.password.errors}}
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="clickable rounded bg-blue txt-white">
+                        <span class="labeled-icon" aria-hidden="true">
+                            <span class="icon">{% embed_svg 'website/svg/megaphone.svg' %}</span>
+                            <span class="label">{% translate 'Login' context 'Button' %}</span>
+                        </span>
+                    </button>
+                </div>
+                <input type="hidden" name="next" value="{{next}}" />
+            </form>
+            <div class="lost-password">
+                <a href="{% url 'account:password_reset' %}">
+                    {% translate 'Lost password' %}?
+                </a>
+            </div>
+            <div class="signup">
+                <a href="{% url 'account:signup' %}">
+                    {% translate 'Sign Up' context 'Login page'%}
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

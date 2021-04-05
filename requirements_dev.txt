@@ -1,0 +1,9 @@
+-r requirements.txt
+ipython
+pylint
+pylint-django
+coverage
+model-mommy
+django-coverage
+django-debug-toolbar
+selenium

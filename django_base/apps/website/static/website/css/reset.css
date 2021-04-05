@@ -1,0 +1,51 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a,
+img, ul, li, form, label, table, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, figcaption, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+button, a {
+    color: var(--label-color);
+    touch-action: manipulation;
+    text-decoration: none;
+}
+
+textarea,
+button,
+input {
+    font-family: inherit;
+    font-size: inherit;
+    box-sizing: border-box;
+    appearance: none;
+    border: none;
+}
+
+button { padding: 0; }
+
+a, button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color:transparent;
+     -moz-tap-highlight-color:transparent;
+       -o-tap-highlight-color:transparent;
+          tap-highlight-color: transparent;
+}
+
+li { list-style: none; }
+
+*::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-family: Roboto, Arial;
+    font-weight: 300;
+    color: #6d6d6d;
+}
+
+:focus {
+    outline-color: orange;
+}
